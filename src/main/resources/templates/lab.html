@@ -44,24 +44,38 @@
 </nav>
 <div class="container">
     <div>
-        <h2>Drum Lab by the Orange-Peels</h2>
+        <h2><img height="50" width="50" th:src="@{/img/peels.jpg}" /> Drum Lab by the Orange-Peels</h2>
         <div class="row">
             <div class="col-6-md">
                 <div class="row">
                     <h4>Vocals</h4>
                     <div class="btn-group">
-                        <button class="btn btn-default concha">Con</button>
-                        <button class="btn btn-default cha">Cha</button>
+                        <button class="btn btn-default concha">
+                            <video width="200" height="240" preload="metadata" th:src="@{/img/concha.mov}"></video>
+                        </button>
+                        <button class="btn btn-default cha">
+                            <video width="200" height="240" preload="metadata" th:src="@{/img/cha.mov}"></video>
+                        </button>
                     </div>
                 </div>
                 <div class="row">
                     <h4>Percussion</h4>
                     <div class="btn-group">
-                        <button class="btn btn-default shaker">Shaker</button>
-                        <button class="btn btn-default kick">Kick</button>
-                        <button class="btn btn-default snare">snare</button>
-                        <button class="btn btn-default drum">drum</button>
-                        <button class="btn btn-default yoyobass">yoyo</button>
+                        <button class="btn btn-default shaker">
+                            <video width="200" height="240" preload="metadata" th:src="@{/img/shaker.mov}"></video>
+                        </button>
+                        <button class="btn btn-default kick">
+                            <video width="200" height="240" preload="metadata" th:src="@{/img/kick.mov}"></video>
+                        </button>
+                        <button class="btn btn-default snare1">
+                            <video width="200" height="240" preload="metadata" th:src="@{/img/snare1.mov}"></video>
+                        </button>
+                        <button class="btn btn-default snare2">
+                            <video width="200" height="240" preload="metadata" th:src="@{/img/snare2.mov}"></video>
+                        </button>
+                        <button class="btn btn-default yoyobass">
+                            <video width="200" height="240" preload="metadata" th:src="@{/img/bass.mov}"></video>
+                        </button>
                     </div>
                 </div>
             </div><!--
