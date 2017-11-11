@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  creationTimestamp: null
+  name: concha-drum-lab
+spec:
+  host: concha-drum-lab-music-hack.apps.na1.openshift.opentlc.com
+  to:
+    kind: Service
+    name: concha-drum-lab
+    weight: 100
+  wildcardPolicy: None

@@ -23,14 +23,10 @@ spec:
     version: 1.0.0.redhat-000055
   strategy:
     activeDeadlineSeconds: 21600
-    resources: {}
-    rollingParams:
-      intervalSeconds: 1
-      maxSurge: 25%
-      maxUnavailable: 25%
+    recreateParams:
       timeoutSeconds: 600
-      updatePeriodSeconds: 1
-    type: Rolling
+    resources: {}
+    type: Recreate
   template:
     metadata:
       creationTimestamp: null
@@ -49,7 +45,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
-        image: 172.30.160.227:5000/music-hack/concha-drum-lab@sha256:daaab93bc7d62d3839ce0bb31c718c82c163455f74fd1aa953d3b068fbe3c625
+        image: 172.30.160.227:5000/music-hack/concha-drum-lab@sha256:c93e18fea4d87b9fd021c45ccc9229da5ccb52488c08b16c24eda555ad90e70e
         imagePullPolicy: Always
         livenessProbe:
           failureThreshold: 3
@@ -93,7 +89,6 @@ spec:
       terminationGracePeriodSeconds: 30
   test: false
   triggers:
-  - type: ConfigChange
   - imageChangeParams:
       automatic: true
       containerNames:
@@ -103,3 +98,4 @@ spec:
         name: concha-drum-lab:latest
         namespace: music-hack
     type: ImageChange
+  - type: ConfigChange

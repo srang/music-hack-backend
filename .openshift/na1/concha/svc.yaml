@@ -1,20 +1,27 @@
 apiVersion: v1
 kind: Service
 metadata:
+  creationTimestamp: null
   labels:
-    app: "concha-drum-lab"
-  name: "concha-drum-lab"
-  namespace: "music-hack"
+    app: s2i-spring-boot-camel
+    component: concha-drum-lab
+    group: quickstarts
+    project: concha-drum-lab
+    provider: s2i
+    template: s2i-spring-boot-camel
+    version: 1.0.0.redhat-000055
+  name: concha-drum-lab
 spec:
   ports:
-  -
-    name: 8080-tcp
-    port: 8080
+  - port: 8080
     protocol: TCP
     targetPort: 8080
   selector:
-    app: concha-drum-lab
+    component: concha-drum-lab
     deploymentconfig: concha-drum-lab
+    group: quickstarts
+    project: concha-drum-lab
+    provider: s2i
+    version: 1.0.0.redhat-000055
   sessionAffinity: None
-status:
-  loadBalancer: {}
+  type: ClusterIP
