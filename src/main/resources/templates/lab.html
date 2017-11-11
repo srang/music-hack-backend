@@ -6,7 +6,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
+    <link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon" />
     <title>Concha Drum Lab</title>
 
     <!-- Styles -->
@@ -66,14 +66,24 @@
 <div class="container">
     <div>
         <h2>Hello World</h2>
+        <div class="btn-group">
+            <button class="btn btn-default yoyo">yoyo</button>
+            <button class="btn btn-default bass">bass</button>
+            <button class="btn btn-default cha">cha</button>
+            <button class="btn btn-default shaker">shaker</button>
+            <button class="btn btn-default conch">con</button>
+            <button class="btn btn-default snare">snare</button>
+            <button class="btn btn-default snare2">drum</button>
+            <button class="btn btn-default yoyobass">yoyo</button>
+        </div>
     </div>
 </div>
 
 <!-- Footer -->
 
 <!-- Javascript -->
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<th:block layout:fragment="custom-js"></th:block>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" />
+<script src="js/lab.js" />
 </body>
 </html>

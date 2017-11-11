@@ -1,0 +1,105 @@
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  creationTimestamp: null
+  generation: 1
+  labels:
+    app: s2i-spring-boot-camel
+    component: concha-drum-lab
+    group: quickstarts
+    project: concha-drum-lab
+    provider: s2i
+    template: s2i-spring-boot-camel
+    version: 1.0.0.redhat-000055
+  name: concha-drum-lab
+spec:
+  replicas: 1
+  selector:
+    component: concha-drum-lab
+    deploymentconfig: concha-drum-lab
+    group: quickstarts
+    project: concha-drum-lab
+    provider: s2i
+    version: 1.0.0.redhat-000055
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        component: concha-drum-lab
+        deploymentconfig: concha-drum-lab
+        group: quickstarts
+        project: concha-drum-lab
+        provider: s2i
+        version: 1.0.0.redhat-000055
+    spec:
+      containers:
+      - env:
+        - name: KUBERNETES_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        image: 172.30.160.227:5000/music-hack/concha-drum-lab@sha256:daaab93bc7d62d3839ce0bb31c718c82c163455f74fd1aa953d3b068fbe3c625
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /lab
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 180
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: concha-drum-lab
+        ports:
+        - containerPort: 8778
+          name: jolokia
+          protocol: TCP
+        - containerPort: 8080
+          name: web
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /lab
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources:
+          limits:
+            cpu: "1"
+          requests:
+            cpu: 200m
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - concha-drum-lab
+      from:
+        kind: ImageStreamTag
+        name: concha-drum-lab:latest
+        namespace: music-hack
+    type: ImageChange
