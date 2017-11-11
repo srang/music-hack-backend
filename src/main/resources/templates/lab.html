@@ -6,7 +6,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon" />
+    <link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon"/>
     <title>Concha Drum Lab</title>
 
     <!-- Styles -->
@@ -30,7 +30,7 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" th:href="@{/lab}" ><i class="fa fa-music" aria-hidden="true"></i> Concha Drum Lab</a>
+            <a class="navbar-brand" th:href="@{/lab}"><i class="fa fa-music" aria-hidden="true"></i> Concha Drum Lab</a>
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -39,42 +39,35 @@
                 <li><a th:href="@{/lab}">Drum Lab</a></li>
                 <li><a th:href="@{/about}">About</a></li>
             </ul>
-            <!-- Right Side Of Navbar -->
-            <!--<ul class="nav navbar-nav navbar-right">-->
-                <!--<li class="dropdown">-->
-                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">-->
-                        <!--<span ></span> <span class="caret"></span>-->
-                    <!--</a>-->
-
-                    <!--<ul class="dropdown-menu" role="menu">-->
-                        <!--<li>-->
-                            <!--<form th:action="@{/auth/logout}" method="post">-->
-                                <!--<button class="btn btn-link btn-submit" type="submit"><i-->
-                                        <!--class="fa fa-btn fa-sign-out"></i><span th:text="#{logout}"></span></button>-->
-                            <!--</form>-->
-
-                        <!--</li>-->
-                    <!--</ul>-->
-                <!--</li>-->
-                <!--<li sec:authorize="isAnonymous()"><a th:href="@{/auth/login}">Login</a></li>-->
-                <!--<li sec:authorize="isAnonymous()"><a th:href="@{/auth/register}">Register</a></li>-->
-                <!--&lt;!&ndash;@endif&ndash;&gt;-->
-            <!--</ul>-->
         </div>
     </div>
 </nav>
 <div class="container">
     <div>
-        <h2>Hello World</h2>
-        <div class="btn-group">
-            <button class="btn btn-default yoyo">yoyo</button>
-            <button class="btn btn-default bass">bass</button>
-            <button class="btn btn-default cha">cha</button>
-            <button class="btn btn-default shaker">shaker</button>
-            <button class="btn btn-default conch">con</button>
-            <button class="btn btn-default snare">snare</button>
-            <button class="btn btn-default snare2">drum</button>
-            <button class="btn btn-default yoyobass">yoyo</button>
+        <h2>Drum Lab by the Orange-Peels</h2>
+        <div class="row">
+            <div class="col-6-md">
+                <div class="row">
+                    <h4>Vocals</h4>
+                    <div class="btn-group">
+                        <button class="btn btn-default concha">Con</button>
+                        <button class="btn btn-default cha">Cha</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <h4>Percussion</h4>
+                    <div class="btn-group">
+                        <button class="btn btn-default shaker">Shaker</button>
+                        <button class="btn btn-default kick">Kick</button>
+                        <button class="btn btn-default snare">snare</button>
+                        <button class="btn btn-default drum">drum</button>
+                        <button class="btn btn-default yoyobass">yoyo</button>
+                    </div>
+                </div>
+            </div><!--
+            --><div class="col-6-md">
+                <div id="vid" />
+            </div>
         </div>
     </div>
 </div>
@@ -82,8 +75,8 @@
 <!-- Footer -->
 
 <!-- Javascript -->
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" />
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" />
-<script src="js/lab.js" />
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"/>
+<script src="js/lab.js"/>
 </body>
 </html>
