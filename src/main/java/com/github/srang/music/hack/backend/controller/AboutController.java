@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AboutController {
     @RequestMapping("")
     public String about() {
-        return "lab";
+        return "about";
     }
 }

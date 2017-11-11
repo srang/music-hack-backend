@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by srang on 11/11/2017.
  */
 @Controller
-@RequestMapping("/lab")
+@RequestMapping("/")
 public class LabController {
-    @RequestMapping("")
+    @RequestMapping("/lab")
     public String home() {
         return "lab";
     }
+    @RequestMapping("/")
+    public String redir() { return "redirect:/lab"; }
 }
