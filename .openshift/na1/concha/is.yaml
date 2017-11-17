@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  creationTimestamp: null
+  generation: 1
+  name: concha-drum-lab
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations: null
+    from:
+      kind: DockerImage
+      name: 172.30.160.227:5000/music-hack/concha-drum-lab:latest
+    generation: null
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: ""
+status:
+  dockerImageRepository: ""
